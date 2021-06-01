@@ -19,6 +19,8 @@ struct Article: Decodable {
     let body: String
     let date: String
     let url: URL
+    let author: String
+    let source: ArticleSource
     
     private enum CodingKeys: String, CodingKey {
         case title
@@ -26,5 +28,12 @@ struct Article: Decodable {
         case body = "description"
         case date = "publishedAt"
         case url
+        case author
+        case source
     }
+}
+
+struct ArticleSource: Decodable {
+    
+    let name: String
 }

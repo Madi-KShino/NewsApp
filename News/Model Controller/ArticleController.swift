@@ -22,10 +22,6 @@ class ArticleController {
     
     //MARK: Class Methods
     
-    func fetchAllArticles(completion: @escaping(([Article]?) -> Void )) {
-        
-    }
-    
     func fetchTopArticlesForCountry(_ country: Country, completion: @escaping([Article]?, String?) -> Void) {
         guard let url = baseURL else { completion(nil, "Invalid URL"); return }
         let urlWithPathComponent = url.appendingPathComponent("top-headlines")
@@ -40,12 +36,22 @@ class ArticleController {
                 completion(nil, error.localizedDescription)
                 return
             }
+            var errorMessage: String?
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 400: errorMessage = "Invalid Request"
+                case 401: errorMessage = "Invalid or missing API key"
+                case 429: errorMessage = "Too many requests. Try again later."
+                case 500: errorMessage = "Server Error"
+                default : errorMessage = "Error decoding data."
+                }
+            }
             if let data = data {
                 do {
                     let results = try JSONDecoder().decode(TopLevelDictionary.self, from: data)
                     completion(results.articles, nil)
                 } catch {
-                    completion(nil, "Error decoding data.")
+                    completion(nil, errorMessage)
                     return
                 }
             }
@@ -66,12 +72,22 @@ class ArticleController {
                 completion(nil, error.localizedDescription)
                 return
             }
+            var errorMessage: String?
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 400: errorMessage = "Invalid Request"
+                case 401: errorMessage = "Invalid or missing API key"
+                case 429: errorMessage = "Too many requests. Try again later."
+                case 500: errorMessage = "Server Error"
+                default : errorMessage = nil
+                }
+            }
             if let data = data {
                 do {
                     let results = try JSONDecoder().decode(TopLevelDictionary.self, from: data)
                     completion(results.articles, nil)
                 } catch {
-                    completion(nil, "Error decoding data.")
+                    completion(nil, errorMessage)
                     return
                 }
             }
@@ -90,13 +106,5 @@ class ArticleController {
                 completion(image, nil)
             }
         } .resume()
-    }
-    
-    func createArticleWith(title: String, image: UIImage?, body: String, date: Date, withURL: URL) {
-        
-    }
-    
-    func remove(article: Article) {
-        
     }
 }

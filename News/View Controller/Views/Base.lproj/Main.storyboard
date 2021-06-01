@@ -16,27 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top News Stories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="CXt-xq-KJU">
-                                <rect key="frame" x="20" y="99" width="374" height="38.5"/>
+                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top News Stories" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="CXt-xq-KJU">
+                                <rect key="frame" x="20" y="74" width="374" height="38.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="JoV-mh-xtd">
-                                <rect key="frame" x="10" y="147.5" width="394" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MG6-Kv-Hcw">
-                                <rect key="frame" x="20" y="59" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="MG6-Kv-Hcw" secondAttribute="height" multiplier="1:1" id="DGB-6Y-02y"/>
-                                    <constraint firstAttribute="width" constant="30" id="yOH-8N-xAB"/>
-                                </constraints>
-                                <color key="tintColor" red="1" green="0.62891428745706857" blue="0.4965138674104902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="menuIcon"/>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-A4-f1h">
-                                <rect key="frame" x="20" y="218.5" width="374" height="633.5"/>
+                                <rect key="frame" x="20" y="193.5" width="374" height="658.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleCell" rowHeight="264" id="s7u-Dc-McC" customClass="ArticleTableViewCell" customModule="News" customModuleProvider="target">
@@ -118,18 +105,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="JoV-mh-xtd">
+                                <rect key="frame" x="10" y="122.5" width="394" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results to Display" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ot7-PM-NUe">
+                                <rect key="frame" x="20" y="802.5" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0El-GO-d7n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EUd-A4-f1h" firstAttribute="leading" secondItem="0El-GO-d7n" secondAttribute="leading" constant="20" id="1BP-QI-zIF"/>
+                            <constraint firstItem="ot7-PM-NUe" firstAttribute="leading" secondItem="0El-GO-d7n" secondAttribute="leading" constant="20" id="1Zr-yN-xw1"/>
                             <constraint firstItem="JoV-mh-xtd" firstAttribute="leading" secondItem="0El-GO-d7n" secondAttribute="leading" constant="10" id="3mG-Hp-92J"/>
+                            <constraint firstItem="CXt-xq-KJU" firstAttribute="top" secondItem="0El-GO-d7n" secondAttribute="top" constant="30" id="70P-nV-OIT"/>
                             <constraint firstItem="0El-GO-d7n" firstAttribute="trailing" secondItem="EUd-A4-f1h" secondAttribute="trailing" constant="20" id="GvX-kB-jmt"/>
-                            <constraint firstItem="MG6-Kv-Hcw" firstAttribute="leading" secondItem="0El-GO-d7n" secondAttribute="leading" constant="20" id="VTT-hk-h0M"/>
+                            <constraint firstItem="0El-GO-d7n" firstAttribute="bottom" secondItem="ot7-PM-NUe" secondAttribute="bottom" constant="40" id="IqK-jz-IfT"/>
+                            <constraint firstItem="0El-GO-d7n" firstAttribute="trailing" secondItem="ot7-PM-NUe" secondAttribute="trailing" constant="20" id="SOn-fY-C7d"/>
                             <constraint firstItem="EUd-A4-f1h" firstAttribute="top" secondItem="JoV-mh-xtd" secondAttribute="bottom" constant="15" id="Xdf-il-k39"/>
                             <constraint firstItem="0El-GO-d7n" firstAttribute="trailing" secondItem="JoV-mh-xtd" secondAttribute="trailing" constant="10" id="XqR-8t-Ooc"/>
-                            <constraint firstItem="MG6-Kv-Hcw" firstAttribute="top" secondItem="0El-GO-d7n" secondAttribute="top" constant="15" id="bNV-UR-K6F"/>
-                            <constraint firstItem="CXt-xq-KJU" firstAttribute="top" secondItem="MG6-Kv-Hcw" secondAttribute="bottom" constant="10" id="cs2-3q-6Eb"/>
                             <constraint firstItem="JoV-mh-xtd" firstAttribute="top" secondItem="CXt-xq-KJU" secondAttribute="bottom" constant="10" id="dJr-nx-tDN"/>
                             <constraint firstItem="CXt-xq-KJU" firstAttribute="leading" secondItem="0El-GO-d7n" secondAttribute="leading" constant="20" id="sqU-DV-vN0"/>
                             <constraint firstItem="0El-GO-d7n" firstAttribute="bottom" secondItem="EUd-A4-f1h" secondAttribute="bottom" constant="10" id="wI7-7a-vt7"/>
@@ -139,8 +137,8 @@
                     <navigationItem key="navigationItem" id="KdG-79-xi0"/>
                     <connections>
                         <outlet property="articleTableView" destination="EUd-A4-f1h" id="SHw-3B-6rP"/>
+                        <outlet property="noResultsLabel" destination="ot7-PM-NUe" id="6qc-DK-HlZ"/>
                         <outlet property="searchBar" destination="JoV-mh-xtd" id="xyW-yc-b7W"/>
-                        <outlet property="slideMenuButton" destination="MG6-Kv-Hcw" id="Yw5-sD-z1N"/>
                         <outlet property="titleLabel" destination="CXt-xq-KJU" id="9oQ-Do-MLk"/>
                     </connections>
                 </viewController>
@@ -160,10 +158,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYf-0p-kEe">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="591.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="728.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Qno-6N-nni">
-                                                <rect key="frame" x="20" y="20" width="374" height="551.5"/>
+                                                <rect key="frame" x="20" y="20" width="374" height="688.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z98-VN-DIo">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="21.5"/>
@@ -180,8 +178,20 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kn6-kM-YN5">
                                                         <rect key="frame" x="0.0" y="85.5" width="374" height="252.5"/>
                                                     </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GH6-xE-aOD">
+                                                        <rect key="frame" x="0.0" y="358" width="374" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqS-f5-fHp">
+                                                        <rect key="frame" x="0.0" y="399.5" width="374" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhF-dv-KBk">
-                                                        <rect key="frame" x="0.0" y="358" width="374" height="193.5"/>
+                                                        <rect key="frame" x="0.0" y="441" width="374" height="193.5"/>
                                                         <string key="text">A noiseless patient spider,
 I mark’d where on a little promontory it stood isolated,
 Mark’d how to explore the vacant vast surrounding,
@@ -191,6 +201,16 @@ Ever unreeling them, ever tirelessly speeding them.</string>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Be-38-Opl">
+                                                        <rect key="frame" x="0.0" y="654.5" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <state key="normal" title="View Full Article">
+                                                            <color key="titleColor" red="0.8941736817" green="0.36591540923479138" blue="0.23587129341128035" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="didSelectArticleLinkButton:" destination="ghu-WJ-NGb" eventType="touchUpInside" id="jaI-J4-p79"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -226,19 +246,57 @@ Ever unreeling them, ever tirelessly speeding them.</string>
                     </view>
                     <navigationItem key="navigationItem" id="vLY-54-f37"/>
                     <connections>
+                        <outlet property="articleAuthorLabel" destination="GqS-f5-fHp" id="q91-d3-Oqg"/>
                         <outlet property="articleBodyLabel" destination="mhF-dv-KBk" id="7y0-nX-QGd"/>
                         <outlet property="articleDateLabel" destination="z98-VN-DIo" id="REm-iQ-IRp"/>
                         <outlet property="articleImageView" destination="kn6-kM-YN5" id="DLV-xL-we3"/>
+                        <outlet property="articleLinkButton" destination="6Be-38-Opl" id="TXc-u4-5KH"/>
+                        <outlet property="articleSourceLabel" destination="GH6-xE-aOD" id="0th-Bw-wr1"/>
                         <outlet property="articleTitleLabel" destination="4OF-aV-LfR" id="AKc-Ec-XXQ"/>
+                        <segue destination="GRW-qx-oe3" kind="show" identifier="toArticleWebViewController" id="h6p-XL-f8P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrn-06-jiJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2360.8695652173915" y="-456.02678571428567"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="l8d-Pi-fsu">
+            <objects>
+                <viewController id="GRW-qx-oe3" customClass="WebViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jU1-ty-ZHe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gk3-69-f9J">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="88S-Up-G3W"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gk3-69-f9J" firstAttribute="top" secondItem="88S-Up-G3W" secondAttribute="top" id="ZyS-c8-Fxy"/>
+                            <constraint firstItem="88S-Up-G3W" firstAttribute="bottom" secondItem="gk3-69-f9J" secondAttribute="bottom" id="fU2-W0-DVX"/>
+                            <constraint firstItem="gk3-69-f9J" firstAttribute="leading" secondItem="88S-Up-G3W" secondAttribute="leading" id="j92-fx-NFc"/>
+                            <constraint firstItem="88S-Up-G3W" firstAttribute="trailing" secondItem="gk3-69-f9J" secondAttribute="trailing" id="kJK-1b-A5h"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="snK-tf-Fys"/>
+                    <connections>
+                        <outlet property="articleWebView" destination="gk3-69-f9J" id="n66-G5-hI7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ucc-oH-VPs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3168" y="-456"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="menuIcon" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

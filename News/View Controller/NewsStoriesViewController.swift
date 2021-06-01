@@ -11,11 +11,10 @@ class NewsStoriesViewController: UIViewController {
 
     //MARK: Outlets
     
-    @IBOutlet weak var slideMenuButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var articleTableView: UITableView!
-    
+    @IBOutlet weak var noResultsLabel: UILabel!
     
     //MARK: Properties
     
@@ -27,14 +26,19 @@ class NewsStoriesViewController: UIViewController {
         super.viewDidLoad()
         assignDelegates()
         loadInitialView()
-//        updateView()
     }
     
     //MARK: Methods
 
     func updateView() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [self] in
+            self.titleLabel.text = self.searchBar.text == "" ? "Top News Articles" : "News Articles for '\(self.searchBar.text!)'"
             self.articleTableView.reloadData()
+            if self.articles.isEmpty == true {
+                self.noResultsLabel.isHidden = false
+            } else {
+                self.noResultsLabel.isHidden = true
+            }
         }
     }
     
@@ -46,20 +50,46 @@ class NewsStoriesViewController: UIViewController {
     
     func loadTopArticles() {
         ArticleController.sharedInstance.fetchTopArticlesForCountry(Country.unitedStates) { (articles, error) in
+            if let error = error {
+                self.presentErrorMessage(error)
+                return
+            }
             if let articles = articles {
                 self.articles = articles
-                self.updateView()
+            } else {
+                self.articles = []
             }
         }
+        updateView()
+    }
+    
+    func loadArticlesWithSearch(_ searchText: String) {
+        ArticleController.sharedInstance.fetchArticlesFromSearch(searchText) { (articles, error) in
+            if let error = error {
+                self.presentErrorMessage(error)
+                return
+            }
+            if let articles = articles {
+                self.articles = articles
+            } else {
+                self.articles = []
+            }
+        }
+        updateView()
     }
     
     func loadInitialView() {
-        searchBar.text = "crypto"
-        ArticleController.sharedInstance.fetchArticlesFromSearch("crypto") { (articles, error) in
-            if let articles = articles {
-                self.articles = articles
-                self.updateView()
-            }
+        searchBar.text = "Crypto Currency"
+        titleLabel.text = "Crypto Currency"
+        loadArticlesWithSearch(searchBar.text!)
+    }
+    
+    func presentErrorMessage(_ error: String) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Something went wrong", message: error, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -79,13 +109,19 @@ class NewsStoriesViewController: UIViewController {
 extension NewsStoriesViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let searchText = searchBar.text,
-              searchText != "" else { return }
-        ArticleController.sharedInstance.fetchArticlesFromSearch(searchText) { (articles, error) in
-            if let articles = articles {
-                self.articles = articles
-                self.updateView()
+        if searchText != "" {
+            ArticleController.sharedInstance.fetchArticlesFromSearch(searchText) { (articles, error) in
+                if let articles = articles {
+                    self.articles = articles
+                    self.updateView()
+                } else {
+                    self.articles = []
+                    self.updateView()
+                }
             }
+        } else {
+            titleLabel.text = "Top News Articles"
+            loadTopArticles()
         }
     }
 }

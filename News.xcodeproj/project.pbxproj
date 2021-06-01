@@ -20,6 +20,7 @@
 		DFCFEB362663E4EF00D6CF74 /* ArticleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCFEB352663E4EF00D6CF74 /* ArticleController.swift */; };
 		DFCFEB3E2666003E00D6CF74 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCFEB3D2666003E00D6CF74 /* Country.swift */; };
 		DFCFEB4326660B9C00D6CF74 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCFEB4226660B9C00D6CF74 /* ArticleTableViewCell.swift */; };
+		DFCFEB4B2666996500D6CF74 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCFEB4A2666996500D6CF74 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		DFCFEB352663E4EF00D6CF74 /* ArticleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleController.swift; sourceTree = "<group>"; };
 		DFCFEB3D2666003E00D6CF74 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		DFCFEB4226660B9C00D6CF74 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		DFCFEB4A2666996500D6CF74 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				DFCFEB1B26614D5900D6CF74 /* Model */,
-				DFCFEB1C26614D7500D6CF74 /* Views */,
+				DFCFEB522666ACE700D6CF74 /* Model Controller */,
+				DFCFEB532666AD0100D6CF74 /* Views */,
+				DFCFEB1C26614D7500D6CF74 /* View Controller */,
 				DFCFEB1426614CE100D6CF74 /* Resources */,
 				DFCFEAEF26614C0E00D6CF74 /* Info.plist */,
 			);
@@ -149,22 +153,38 @@
 			isa = PBXGroup;
 			children = (
 				DFCFEB302663E0FE00D6CF74 /* Article.swift */,
-				DFCFEB352663E4EF00D6CF74 /* ArticleController.swift */,
 				DFCFEB3D2666003E00D6CF74 /* Country.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DFCFEB1C26614D7500D6CF74 /* Views */ = {
+		DFCFEB1C26614D7500D6CF74 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DFCFEB2326615FF000D6CF74 /* NewsStoriesViewController.swift */,
+				DFCFEB2B2663E07B00D6CF74 /* ArticleDetailViewController.swift */,
+				DFCFEB4226660B9C00D6CF74 /* ArticleTableViewCell.swift */,
+				DFCFEB4A2666996500D6CF74 /* WebViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		DFCFEB522666ACE700D6CF74 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DFCFEB352663E4EF00D6CF74 /* ArticleController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		DFCFEB532666AD0100D6CF74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DFCFEAE726614C0B00D6CF74 /* Main.storyboard */,
 				DFCFEAEC26614C0E00D6CF74 /* LaunchScreen.storyboard */,
-				DFCFEB2326615FF000D6CF74 /* NewsStoriesViewController.swift */,
-				DFCFEB2B2663E07B00D6CF74 /* ArticleDetailViewController.swift */,
-				DFCFEB4226660B9C00D6CF74 /* ArticleTableViewCell.swift */,
 			);
-			path = Views;
+			name = Views;
+			path = Views/Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFCFEB3E2666003E00D6CF74 /* Country.swift in Sources */,
+				DFCFEB4B2666996500D6CF74 /* WebViewController.swift in Sources */,
 				DFCFEB362663E4EF00D6CF74 /* ArticleController.swift in Sources */,
 				DFCFEAE226614C0B00D6CF74 /* AppDelegate.swift in Sources */,
 				DFCFEAE426614C0B00D6CF74 /* SceneDelegate.swift in Sources */,
