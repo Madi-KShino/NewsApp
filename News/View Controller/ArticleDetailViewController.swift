@@ -18,6 +18,7 @@ class ArticleDetailViewController: UIViewController {
     @IBOutlet weak var articleSourceLabel: UILabel!
     @IBOutlet weak var articleAuthorLabel: UILabel!
     @IBOutlet weak var articleLinkButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     //MARK: Properties
     
@@ -33,8 +34,14 @@ class ArticleDetailViewController: UIViewController {
     
     //MARK: Actions
     
+    @IBAction func didSelectShare(_ sender: Any) {
+        guard let url = article?.url else { return }
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
     @IBAction func didSelectArticleLinkButton(_ sender: Any) {
-        let alertController = UIAlertController(title: "View full article?", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "View article web page?", message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "YES", style: .default) { (action) in
             self.performSegue(withIdentifier: "toArticleWebViewController", sender: nil)
         }
@@ -67,6 +74,11 @@ class ArticleDetailViewController: UIViewController {
     
     func setUI() {
         articleImageView.layer.cornerRadius = 10
+        if article?.url != nil {
+            shareButton.isEnabled = true
+        } else {
+            shareButton.isEnabled = false
+        }
     }
     
     func formattedDateString(dateString: String) -> String {

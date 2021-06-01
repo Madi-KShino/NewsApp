@@ -33,12 +33,12 @@ class NewsStoriesViewController: UIViewController {
     func updateView() {
         DispatchQueue.main.async { [self] in
             self.titleLabel.text = self.searchBar.text == "" ? "Top News Articles" : "News Articles for '\(self.searchBar.text!)'"
-            self.articleTableView.reloadData()
             if self.articles.isEmpty == true {
                 self.noResultsLabel.isHidden = false
             } else {
                 self.noResultsLabel.isHidden = true
             }
+            self.articleTableView.reloadData()
         }
     }
     
@@ -59,8 +59,8 @@ class NewsStoriesViewController: UIViewController {
             } else {
                 self.articles = []
             }
+            self.updateView()
         }
-        updateView()
     }
     
     func loadArticlesWithSearch(_ searchText: String) {
@@ -74,8 +74,8 @@ class NewsStoriesViewController: UIViewController {
             } else {
                 self.articles = []
             }
+            self.updateView()
         }
-        updateView()
     }
     
     func loadInitialView() {

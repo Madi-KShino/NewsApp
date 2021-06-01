@@ -17,7 +17,8 @@ class ArticleController {
     //Shared instance
     static let sharedInstance = ArticleController()
     
-    fileprivate let apiKey = "beb2c5bcbc994581b97bec0ea71c1d5d"
+//    fileprivate let apiKey = "beb2c5bcbc994581b97bec0ea71c1d5d"
+    fileprivate let apiKey = "828a6ecc708a4f969a8f60460c4a6e76"
     fileprivate let baseURL = URL(string: "https://newsapi.org/v2/")
     
     //MARK: Class Methods
@@ -79,7 +80,7 @@ class ArticleController {
                 case 401: errorMessage = "Invalid or missing API key"
                 case 429: errorMessage = "Too many requests. Try again later."
                 case 500: errorMessage = "Server Error"
-                default : errorMessage = nil
+                default : errorMessage = "Error decoding data"
                 }
             }
             if let data = data {

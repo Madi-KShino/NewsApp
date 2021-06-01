@@ -113,8 +113,8 @@
 			children = (
 				DFCFEB1B26614D5900D6CF74 /* Model */,
 				DFCFEB522666ACE700D6CF74 /* Model Controller */,
-				DFCFEB532666AD0100D6CF74 /* Views */,
 				DFCFEB1C26614D7500D6CF74 /* View Controller */,
+				DFDFF9E72666C05100AD9C9D /* View */,
 				DFCFEB1426614CE100D6CF74 /* Resources */,
 				DFCFEAEF26614C0E00D6CF74 /* Info.plist */,
 			);
@@ -177,14 +177,13 @@
 			path = "Model Controller";
 			sourceTree = "<group>";
 		};
-		DFCFEB532666AD0100D6CF74 /* Views */ = {
+		DFDFF9E72666C05100AD9C9D /* View */ = {
 			isa = PBXGroup;
 			children = (
 				DFCFEAE726614C0B00D6CF74 /* Main.storyboard */,
 				DFCFEAEC26614C0E00D6CF74 /* LaunchScreen.storyboard */,
 			);
-			name = Views;
-			path = Views/Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,7 +501,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8MJ3MC3A9A;
 				INFOPLIST_FILE = News/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,7 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8MJ3MC3A9A;
 				INFOPLIST_FILE = News/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

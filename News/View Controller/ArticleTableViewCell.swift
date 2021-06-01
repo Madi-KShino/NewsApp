@@ -36,6 +36,11 @@ class ArticleTableViewCell: UITableViewCell {
         guard let article = article else { return }
         articleImageView.layer.cornerRadius = 10
         cellStackView.layer.cornerRadius = 10
+        if self.traitCollection.userInterfaceStyle == .dark {
+            self.cellStackView.layer.backgroundColor = #colorLiteral(red: 0.2388129957, green: 0.2388129957, blue: 0.2388129957, alpha: 1)
+        } else {
+            self.cellStackView.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
         titleLabel.text = article.title
         summaryLabel.text = article.body
         if article.imageURL != nil {

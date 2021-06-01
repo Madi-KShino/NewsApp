@@ -16,10 +16,10 @@ struct Article: Decodable {
     
     let title: String
     let imageURL: URL?
-    let body: String
+    let body: String?
     let date: String
-    let url: URL
-    let author: String
+    let url: URL?
+    let author: String?
     let source: ArticleSource
     
     private enum CodingKeys: String, CodingKey {
